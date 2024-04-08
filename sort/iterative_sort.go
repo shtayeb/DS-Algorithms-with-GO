@@ -16,6 +16,7 @@ func bubbleSort(input []int) {
 func insertionSort(input []int) {
 	for i := 1; i < len(input); i++ {
 		for j := i; j > 0 && input[j-1] > input[j]; j-- {
+			// swap
 			input[j], input[j-1] = input[j-1], input[j]
 		}
 	}
