@@ -1,6 +1,8 @@
 package list
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestLinkedList(t *testing.T) {
 	// Create a new linked list
@@ -37,7 +39,7 @@ func TestLinkedList(t *testing.T) {
 	}
 
 	// Test Insert method
-	list.Insert(1, 4) // Insert 4 at index 1
+	list.InsertAt(1, 4) // Insert 4 at index 1
 	if size := list.Size(); size != 3 {
 		t.Errorf("Expected size 3 after insertion, got %d", size)
 	}
@@ -52,7 +54,7 @@ func TestLinkedList(t *testing.T) {
 	}
 }
 
-func TestBinarySearch(t *testing.T) {
+func TestArrayList(t *testing.T) {
 	list := NewArrayList()
 
 	list.push(5) // 0
@@ -60,25 +62,25 @@ func TestBinarySearch(t *testing.T) {
 	list.push(9) //2
 
 	if list.get(2) != 9 {
-		t.Errorf("get(2) failed, expected: %d, got: %d", 9, list.get(2))
+		t.Errorf("get(2) failed, expected: %d, got: %d  ==== %v", 9, list.get(2), list.data)
 	}
 
 	removed := list.delete(1)
 	if removed != 7 {
-		t.Errorf("removeAt(1) failed, expected: %d, got: %d", 7, removed)
+		t.Errorf("delete(1) failed, expected: %d, got: %d", 7, removed)
 	}
 	if list.length != 2 {
-		t.Errorf("length() failed, expected: %d, got: %d", 2, list.length)
+		t.Errorf("length failed, expected: %d, got: %d", 2, list.length)
 	}
 
 	list.push(11)
 	removed = list.delete(1)
 	if removed != 9 {
-		t.Errorf("removeAt(1) failed, expected: %d, got: %d", 9, removed)
+		t.Errorf("delete(1) failed, expected: %d, got: %d", 9, removed)
 	}
 	removed = list.delete(9)
 	if removed != -1 {
-		t.Errorf("remove(9) failed, expected: %d, got: %d", -1, removed)
+		t.Errorf("delete(9) failed, expected: %d, got: %d", -1, removed)
 	}
 
 }
