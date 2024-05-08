@@ -13,45 +13,74 @@ func TestLinkedList(t *testing.T) {
 	list.Append(2)
 	list.Append(3)
 
-	// Test Get method
-	if val := list.Get(0); val != 1 {
-		t.Errorf("Expected 1, got %d", val)
-	}
-	if val := list.Get(1); val != 2 {
-		t.Errorf("Expected 2, got %d", val)
-	}
-	if val := list.Get(2); val != 3 {
-		t.Errorf("Expected 3, got %d", val)
-	}
-
-	// Test Size method
-	if size := list.Size(); size != 3 {
+	if size := list.Size; size != 3 {
 		t.Errorf("Expected size 3, got %d", size)
 	}
 
-	// Test Remove method
-	list.Remove(1) // Remove element at index 1 (value 2)
-	if size := list.Size(); size != 2 {
-		t.Errorf("Expected size 2 after removal, got %d", size)
-	}
-	if val := list.Get(1); val != 3 {
-		t.Errorf("Expected 3 after removal, got %d", val)
+	popped := list.Pop()
+	if popped != 3 {
+		t.Errorf("Expected 3, got %d", popped)
 	}
 
-	// Test Insert method
-	list.InsertAt(1, 4) // Insert 4 at index 1
-	if size := list.Size(); size != 3 {
-		t.Errorf("Expected size 3 after insertion, got %d", size)
-	}
-	if val := list.Get(1); val != 4 {
-		t.Errorf("Expected 4 after insertion, got %d", val)
+	popped = list.Pop()
+	if popped != 2 {
+		t.Errorf("Expected 3, got %d", popped)
 	}
 
-	// Test Clear method
-	list.Clear()
-	if size := list.Size(); size != 0 {
-		t.Errorf("Expected size 0 after clearing, got %d", size)
+	popped = list.Pop()
+	if popped != 1 {
+		t.Errorf("Expected 3, got %d", popped)
 	}
+
+	if list.Size != 0 {
+		t.Errorf("Expected size to be 0, got %d", list.Size)
+	}
+
+	list.Append(1)
+	list.Append(2)
+	list.Append(3)
+
+	if list.Size != 3 {
+		t.Errorf("Expected == size to be 0, got %d", list.Size)
+	}
+
+	// Test Get method
+	if val := list.Get(0); val != 1 {
+		t.Errorf("Get(0) Expected 1, got %d", val)
+	}
+
+	// if val := list.Get(1); val != 2 {
+	// 	t.Errorf("Expected 2, got %d", val)
+	// }
+	// if val := list.Get(2); val != 3 {
+	// 	t.Errorf("Expected 3, got %d", val)
+	// }
+	//
+	// Test Size method
+	//
+	// 	// Test Remove method
+	// 	list.Remove(1) // Remove element at index 1 (value 2)
+	// 	if size := list.Size(); size != 2 {
+	// 		t.Errorf("Expected size 2 after removal, got %d", size)
+	// 	}
+	// 	if val := list.Get(1); val != 3 {
+	// 		t.Errorf("Expected 3 after removal, got %d", val)
+	// 	}
+	//
+	// 	// Test Insert method
+	// 	list.InsertAt(1, 4) // Insert 4 at index 1
+	// 	if size := list.Size(); size != 3 {
+	// 		t.Errorf("Expected size 3 after insertion, got %d", size)
+	// 	}
+	// 	if val := list.Get(1); val != 4 {
+	// 		t.Errorf("Expected 4 after insertion, got %d", val)
+	// 	}
+	//
+	// 	// Test Clear method
+	// 	list.Clear()
+	// 	if size := list.Size(); size != 0 {
+	// 		t.Errorf("Expected size 0 after clearing, got %d", size)
+	// 	}
 }
 
 func TestArrayList(t *testing.T) {

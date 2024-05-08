@@ -1,15 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/shtayeb/DS-Algorithms-with-GO/list"
+)
 
 func main() {
-	println("this is test")
+	println("This is test.")
 
-	arr := []int{1, 2, 3, 4, 5}
+	// Create a new linked list
+	l := list.NewLinkedList()
 
-	mid := len(arr) / 2
+	// Test appending elements
+	l.Append(1)
+	l.Append(2)
+	l.Append(3)
 
-	fmt.Printf("%v", arr[:mid+1])
-
-	fmt.Printf("%v", arr[mid+1:])
+	for i := l.Size - 1; i >= 0; i-- {
+		fmt.Printf("i = %v \n", i)
+	}
 }
