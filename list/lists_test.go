@@ -49,38 +49,49 @@ func TestLinkedList(t *testing.T) {
 		t.Errorf("Get(0) Expected 1, got %d", val)
 	}
 
-	// if val := list.Get(1); val != 2 {
-	// 	t.Errorf("Expected 2, got %d", val)
-	// }
-	// if val := list.Get(2); val != 3 {
-	// 	t.Errorf("Expected 3, got %d", val)
-	// }
-	//
-	// Test Size method
-	//
-	// 	// Test Remove method
-	// 	list.Remove(1) // Remove element at index 1 (value 2)
-	// 	if size := list.Size(); size != 2 {
-	// 		t.Errorf("Expected size 2 after removal, got %d", size)
-	// 	}
-	// 	if val := list.Get(1); val != 3 {
-	// 		t.Errorf("Expected 3 after removal, got %d", val)
-	// 	}
-	//
-	// 	// Test Insert method
-	// 	list.InsertAt(1, 4) // Insert 4 at index 1
-	// 	if size := list.Size(); size != 3 {
-	// 		t.Errorf("Expected size 3 after insertion, got %d", size)
-	// 	}
-	// 	if val := list.Get(1); val != 4 {
-	// 		t.Errorf("Expected 4 after insertion, got %d", val)
-	// 	}
-	//
-	// 	// Test Clear method
-	// 	list.Clear()
-	// 	if size := list.Size(); size != 0 {
-	// 		t.Errorf("Expected size 0 after clearing, got %d", size)
-	// 	}
+	if val := list.Get(1); val != 2 {
+		t.Errorf("Expected 2, got %d", val)
+	}
+	if val := list.Get(2); val != 3 {
+		t.Errorf("Expected 3, got %d", val)
+	}
+
+	// Test Remove method
+	removed := list.RemoveAt(1) // Remove element at index 1 (value 2)
+	if removed != 2 {
+		t.Errorf("Expected removed item to be 2 , got %d", removed)
+	}
+	if size := list.Size; size != 2 {
+		t.Errorf("Expected size 2 after removal, got %d", size)
+	}
+	if val := list.Get(1); val != 3 {
+		t.Errorf("Expected 3 after removal, got %d", val)
+	}
+
+	// Test Insert method
+	list.InsertAt(1, 4) // Insert value=4 at index=1
+	if size := list.Size; size != 3 {
+		t.Errorf("Expected size 3 after insertion, got %d", size)
+	}
+
+	if val := list.Get(1); val != 4 {
+		t.Errorf("Expected 4 at index 1, got %d", val)
+	}
+
+	list.InsertAt(2, 5) // Insert value=5 at index=2
+	if size := list.Size; size != 4 {
+		t.Errorf("Expected size 3 after insertion, got %d", size)
+	}
+
+	if val := list.Get(2); val != 5 {
+		t.Errorf("Expected 5 at index 2, got %d", val)
+	}
+
+	// Test Clear method
+	list.Clear()
+	if size := list.Size; size != 0 {
+		t.Errorf("Expected size 0 after clearing, got %d", size)
+	}
 }
 
 func TestArrayList(t *testing.T) {
